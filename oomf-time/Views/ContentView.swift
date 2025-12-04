@@ -56,14 +56,14 @@ struct ContentView: View {
   }
 
   private var addButtonSection: some View {
-    HStack {
-      Button(action: { viewModel.showAddClock.toggle() }) {
-        Image(systemName: "plus.circle.fill")
-          .font(.system(size: viewModel.fontSize + 3))
-      }
-      .buttonStyle(.plain)
+    Button(action: { viewModel.showAddClock.toggle() }) {
+      Image(systemName: "plus.circle.fill")
+        .font(.system(size: viewModel.fontSize + 3))
+        .cornerRadius(100)
     }
+    .buttonStyle(.plain)
     .padding(.horizontal, 14)
     .padding(.vertical, 10)
+    .focusable(false)
   }
 }
