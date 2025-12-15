@@ -64,6 +64,19 @@
           cp ".build/release/oomf-time" "$out/bin"
           runHook postInstall
         '';
+
+        meta = {
+          description = "Application to check current time of the oomfs";
+          mainProgram = "oomf-time";
+        };
+      };
+
+      overlays = {
+        default = final: prev: { oomf-time = self.packages.aarch64-darwin.default; };
+      };
+
+      darwinModules = {
+        default = import ./module.nix { inherit self; };
       };
     };
 }
